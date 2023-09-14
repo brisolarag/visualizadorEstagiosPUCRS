@@ -12,19 +12,22 @@ navegador = webdriver.Chrome()
 navegador.get(url)
 
 # Espera pagina carregar
-wait = WebDriverWait(navegador, 10)
+wait = WebDriverWait(navegador, 20)
 wait.until(EC.presence_of_element_located((By.ID, "CursoNome")))
 
 curso_select = Select(navegador.find_element(By.ID, "CursoNome"))
 
 curso_select.select_by_value("engenharia-de-software") #seleciona curso
 
-botao_enviar = navegador.find_element(By.CLASS_NAME, "vagas-enviar")
 
 if curso_select.first_selected_option.get_attribute("value") != "engenharia-de-software":
     curso_select.select_by_value("engenharia-de-software")
 
-botao_enviar.click() #envia
+wait2 = WebDriverWait(navegador, 10)
+wait2.until(EC.presence_of_element_located((By.CLASS_NAME, "vagas-enviar")))
+
+botao_enviar = navegador.find_element(By.CLASS_NAME, "vagas-enviar")
+botao_enviar.click()
 
 # Espera pagina carregar
 wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".oportunidade-item h3")))
