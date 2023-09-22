@@ -42,11 +42,10 @@ p_elements = navegador.find_elements(By.CSS_SELECTOR, ".oportunidade-item p")
 _vagas = [h3.text for h3 in h3_elements]
 _descricao = [p.text for p in p_elements]
 _hrefs = [a.get_attribute('href') for a in a_elements]
-inicioURL = "https://carreiras.pucrs.br"
 vagas = []
 
 for i, vaga in enumerate(_vagas):
-    dict = {'indice': i, 'vaga': vaga, 'descricao': _descricao[i], 'link': inicioURL + _hrefs[i] }
+    dict = {'indice': i, 'vaga': vaga, 'descricao': _descricao[i], 'link': _hrefs[i] }
     vagas.append(dict)
 
 print(f'Foram encontradas {len(_vagas)} vagas.')
@@ -56,6 +55,7 @@ for i, vaga in enumerate(vagas):
     print(f'Vaga: {vaga["vaga"]}')
     print(f'Descricao: {vaga["descricao"]}')
     print(f'Link: {vaga["link"]}')
+    print("")
     
 
 
