@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from time import sleep
+import write_file
 
 # chrome_driver_path = "./chromedriver"
 url = "https://carreiras.pucrs.br/Oportunidades"
@@ -50,12 +51,13 @@ for i, vaga in enumerate(_vagas):
 
 print(f'Foram encontradas {len(_vagas)} vagas.')
 
-for i, vaga in enumerate(vagas):
-    print(f'Vaga {i + 1} de {len(_vagas)}:')
-    print(f'Vaga: {vaga["vaga"]}')
-    print(f'Descricao: {vaga["descricao"]}')
-    print(f'Link: {vaga["link"]}')
-    print("")
+for vaga in vagas:
+    write_file.escrever_arquivo(vaga)
+    # print(f'Vaga {i + 1} de {len(_vagas)}:')
+    # print(f'Vaga: {vaga["vaga"]}')
+    # print(f'Descricao: {vaga["descricao"]}')
+    # print(f'Link: {vaga["link"]}')
+    # print("")
     
 
 
