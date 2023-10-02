@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import Select
 from time import sleep
 import write_file
 
+nome_do_curso = "engenharia-de-software" #altere aqui
 
 ################################ NAVEGANDO ATÉ A PÁGINA #################################
 url = "https://carreiras.pucrs.br/Oportunidades"
@@ -18,7 +19,7 @@ sleep(10)
 ################################ SELECIONANDO CURSO E ENVIANDO #################################
 # Seleciona curso engenharia mecânica
 curso_select = Select(navegador.find_element(By.ID, "CursoNome"))
-curso_select.select_by_value("engenharia-de-software") #seleciona curso
+curso_select.select_by_value(nome_do_curso) #seleciona curso
 
 # sleep(1)
 
