@@ -13,10 +13,12 @@ Visualizador usando Selenium.
 git clone https://github.com/brisolarag/visualizadorEstagiosPUCRS.git
 ```
 
+
+
 - Inicie uma virtualização dos arquivos e instale as dependências:
 ```
 virtualenv venv
-source /home/$User/.../estagio-visualizer/visualizadorEstagiosPUCRS/venv/bin/activate
+source /home/$User/.../visualizadorEstagiosPUCRS/venv/bin/activate
 pip install -r requirements.txt
 ```
 
